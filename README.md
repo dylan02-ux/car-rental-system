@@ -1,32 +1,40 @@
-# Fully-Working-Car-Rental-System
+# 🚗 Car Rental Management System
 
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+A production-ready web application built with **Laravel 10**, **MySQL**, **Tailwind CSS**, and **Blade**. Features a strict **Login-First** security model ensuring all catalog, booking, and administrative modules are protected.
 
-## About the Project
+---
 
-This is a fully working **Car Rental System** built using **Laravel**, a powerful and elegant PHP framework.  
-The system supports **multi-user authentication**, including **admin** and **customer roles**, and provides features such as:  
+## ✨ Features
 
-- Admin dashboard for managing **cars, bookings, categories, and reviews**  
-- Customer interface for browsing cars, making bookings, and submitting reviews  
-- Secure **authentication and authorization**  
-- Responsive UI using **Tailwind CSS** and modern frontend tools  
+* **Strict Route Security:** Forces authentication (`auth` middleware) across all application routes.
+* **Vehicle Catalog:** Browse available cars with category filtering and spec breakdowns.
+* **Booking System:** Complete rental request workflow from client submission to admin approval.
+* **Admin Dashboard:** Full management suite for vehicles, categories, and active bookings.
+* **Responsive UI:** Clean navbar layout built with Tailwind CSS.
 
-## Project Features
+---
 
-- User registration and login  
-- Role-based access (Admin / Customer)  
-- CRUD operations for cars, bookings, categories, and reviews  
-- Search and filter for available cars  
-- Email notifications for booking confirmations (optional)  
-- Fully responsive design for desktop and mobile  
+## 🛠️ Tech Stack
 
-## Installation
+* **Framework:** [Laravel 10](https://laravel.com/) (PHP 8.2+)
+* **Database:** MySQL
+* **Authentication:** Laravel Breeze
+* **Frontend:** Blade Templates & Tailwind CSS
+* **Date Handling:** Carbon
 
-1. Clone the repository:  
-```bash
-git clone https://github.com/MustafaQZ3121/Fully-Working-Car-Rental-System.git
+---
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+
+* PHP >= 8.2
+* Composer
+* MySQL Server
+
+### Installation Steps
+
+1. **Clone or Extract the Project:**
+   ```bash
+   git clone [https://github.com/dylan02-ux/car-rental-system.git](https://github.com/dylan02-ux/car-rental-system.git)
+   cd car-rental-system
