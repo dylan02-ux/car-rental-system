@@ -8,16 +8,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <h3 class="text-lg font-semibold mb-4">Car Information</h3>
-                <p class="text-gray-600"><strong>Car:</strong> {{ $booking->car->brand }} {{ $booking->car->model }}</p>
+                <p class="text-gray-600"><strong>Car:</strong> {{ $booking->car->brand ?? '' }} {{ $booking->car->name }}</p>
                 <p class="text-gray-600"><strong>Year:</strong> {{ $booking->car->year }}</p>
                 <p class="text-gray-600"><strong>Color:</strong> {{ $booking->car->color }}</p>
-                <p class="text-gray-600"><strong>Seats:</strong> {{ $booking->car->seats }}</p>
+                <p class="text-gray-600"><strong>Seats:</strong> {{ $booking->car->seats ?? '5' }}</p>
             </div>
 
             <div>
                 <h3 class="text-lg font-semibold mb-4">Booking Information</h3>
-                <p class="text-gray-600"><strong>Start Date:</strong> {{ $booking->start_date->format('M d, Y') }}</p>
-                <p class="text-gray-600"><strong>End Date:</strong> {{ $booking->end_date->format('M d, Y') }}</p>
+                <p class="text-gray-600"><strong>Start Date:</strong> {{ \Carbon\Carbon::parse($booking->start_date)->format('M d, Y') }}</p>
+                <p class="text-gray-600"><strong>End Date:</strong> {{ \Carbon\Carbon::parse($booking->end_date)->format('M d, Y') }}</p>
                 <p class="text-gray-600"><strong>Total Days:</strong> {{ $booking->total_days }}</p>
                 <p class="text-gray-600"><strong>Total Price:</strong> ${{ number_format($booking->total_price, 2) }}</p>
             </div>
@@ -34,16 +34,6 @@
                 @endif">
                 {{ ucfirst($booking->status) }}
             </span>
-
-            @if($booking->status === 'pending')
-                <p class="text-gray-600 mt-2">Your booking is pending admin approval.</p>
-            @elseif($booking->status === 'approved')
-                <p class="text-gray-600 mt-2">Your booking has been approved! Enjoy your ride.</p>
-            @elseif($booking->status === 'rejected')
-                <p class="text-gray-600 mt-2">Unfortunately, your booking was rejected.</p>
-            @elseif($booking->status === 'completed')
-                <p class="text-gray-600 mt-2">Your booking is completed. Thank you!</p>
-            @endif
         </div>
 
         @if($booking->payment)
@@ -64,18 +54,7 @@
     </div>
 
     <div class="flex space-x-3">
-        <a href="{{ route('customer.bookings.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Back to My Bookings</a>
-        
-        @if(in_array($booking->status, ['pending', 'approved']))
-            <form action="{{ route('customer.bookings.cancel', $booking) }}" method="POST">
-                @csrf
-                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel Booking</button>
-            </form>
-        @endif
-
-        @if($booking->status === 'completed' && !$booking->review)
-            <a href="{{ route('customer.reviews.create', $booking) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Leave Review</a>
-        @endif
+        <a href="{{ route('home') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Back to Fleet</a>
     </div>
 </div>
 @endsection

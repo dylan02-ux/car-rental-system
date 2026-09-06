@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('cars.book.store', $car) }}" method="POST" class="space-y-5">
+            <form action="{{ route('bookings.storePublic', $car) }}" method="POST" class="space-y-5">
                 @csrf
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

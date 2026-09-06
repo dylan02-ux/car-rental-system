@@ -12,23 +12,19 @@ class Booking extends Model
     protected $fillable = [
         'user_id',
         'car_id',
+        'guest_name',
+        'guest_phone',
+        'guest_email',
         'start_date',
         'end_date',
-        'status',
+        'total_days',
         'total_price',
-        'customer_name',
-        'email',
-        'phone',
-        'address',
+        'status',
     ];
 
-    /**
-     * Cast attributes to native types or Carbon date objects.
-     */
     protected $casts = [
         'start_date' => 'date',
         'end_date' => 'date',
-        'total_price' => 'decimal:2',
     ];
 
     public function user()
@@ -39,5 +35,10 @@ class Booking extends Model
     public function car()
     {
         return $this->belongsTo(Car::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
     }
 }

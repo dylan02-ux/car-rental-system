@@ -1,4 +1,3 @@
-cat << 'EOF' > resources/views/admin/bookings/show.blade.php
 @extends('layouts.app')
 
 @section('content')
